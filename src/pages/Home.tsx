@@ -349,7 +349,7 @@ export default function Home() {
   // Handlers
   // =============================================================================
 
-  const handleFormChange = (field: keyof ClaimFormData, value: string) => {
+  const handleFormChange = (field: keyof ClaimFormData) => (value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
@@ -673,7 +673,7 @@ export default function Home() {
                     id="memberId"
                     placeholder="MBR-2024-XXXX"
                     value={formData.memberId}
-                    onChange={(e) => handleFormChange('memberId', e.target.value)}
+                    onChange={(e) => handleFormChange('memberId')(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -682,7 +682,7 @@ export default function Home() {
                     id="memberName"
                     placeholder="John Doe"
                     value={formData.memberName}
-                    onChange={(e) => handleFormChange('memberName', e.target.value)}
+                    onChange={(e) => handleFormChange('memberName')(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -691,7 +691,7 @@ export default function Home() {
                     id="policyNumber"
                     placeholder="GRP-EXL-2024-001"
                     value={formData.policyNumber}
-                    onChange={(e) => handleFormChange('policyNumber', e.target.value)}
+                    onChange={(e) => handleFormChange('policyNumber')(e.target.value)}
                   />
                 </div>
               </div>
@@ -708,7 +708,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="claimType">Claim Type *</Label>
-                  <Select value={formData.claimType} onValueChange={(v) => handleFormChange('claimType', v)}>
+                  <Select value={formData.claimType} onValueChange={handleFormChange('claimType')}>
                     <SelectTrigger id="claimType">
                       <SelectValue placeholder="Select type" />
                     </SelectTrigger>
@@ -726,7 +726,7 @@ export default function Home() {
                     type="number"
                     placeholder="0.00"
                     value={formData.claimedAmount}
-                    onChange={(e) => handleFormChange('claimedAmount', e.target.value)}
+                    onChange={(e) => handleFormChange('claimedAmount')(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -735,7 +735,7 @@ export default function Home() {
                     id="serviceDateFrom"
                     type="date"
                     value={formData.serviceDateFrom}
-                    onChange={(e) => handleFormChange('serviceDateFrom', e.target.value)}
+                    onChange={(e) => handleFormChange('serviceDateFrom')(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -744,7 +744,7 @@ export default function Home() {
                     id="serviceDateTo"
                     type="date"
                     value={formData.serviceDateTo}
-                    onChange={(e) => handleFormChange('serviceDateTo', e.target.value)}
+                    onChange={(e) => handleFormChange('serviceDateTo')(e.target.value)}
                   />
                 </div>
               </div>
@@ -765,7 +765,7 @@ export default function Home() {
                     id="provider"
                     placeholder="St. Mary's Hospital"
                     value={formData.provider}
-                    onChange={(e) => handleFormChange('provider', e.target.value)}
+                    onChange={(e) => handleFormChange('provider')(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -774,7 +774,7 @@ export default function Home() {
                     id="providerPhone"
                     placeholder="(555) 123-4567"
                     value={formData.providerPhone}
-                    onChange={(e) => handleFormChange('providerPhone', e.target.value)}
+                    onChange={(e) => handleFormChange('providerPhone')(e.target.value)}
                   />
                 </div>
               </div>
@@ -791,7 +791,7 @@ export default function Home() {
                   id="diagnosis"
                   placeholder="Describe the medical condition or reason for claim..."
                   value={formData.diagnosis}
-                  onChange={(e) => handleFormChange('diagnosis', e.target.value)}
+                  onChange={(e) => handleFormChange('diagnosis')(e.target.value)}
                   rows={3}
                 />
               </div>
@@ -801,7 +801,7 @@ export default function Home() {
                   id="documents"
                   placeholder="List all documents submitted (e.g., Medical bills, ID proof, Claim form, Discharge summary)"
                   value={formData.documents}
-                  onChange={(e) => handleFormChange('documents', e.target.value)}
+                  onChange={(e) => handleFormChange('documents')(e.target.value)}
                   rows={2}
                 />
               </div>

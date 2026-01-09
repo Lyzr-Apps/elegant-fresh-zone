@@ -1,0 +1,46 @@
+{
+  "agent_name": "Eligibility Assessment Agent",
+  "agent_id": "69610b405e0239738a838d56",
+  "test_message": "Assess eligibility for Member ID: MBR-2024-5678, Policy Number: GRP-EXL-2024-001, Claim Type: Hospital Admission, Claimed Amount: $12,500, Service dates: Dec 15-18, 2024. Member enrolled since: Jan 1, 2024. Claim for 3-day hospital stay due to appendectomy.",
+  "expected_purpose": "analyzer",
+  "timestamp": "2026-01-09T14:08:25.112068",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "eligibility_status": "eligible",
+      "member_status": {
+        "active_coverage": true,
+        "member_id_valid": true,
+        "enrollment_date": "2024-01-01",
+        "coverage_effective_date": "2024-01-01"
+      },
+      "coverage_assessment": {
+        "claim_type_covered": true,
+        "within_coverage_limits": true,
+        "annual_limit": 20000,
+        "remaining_limit": 20000,
+        "benefit_cap": 20000
+      },
+      "waiting_period": {
+        "applicable": false,
+        "satisfied": true,
+        "waiting_period_end_date": ""
+      },
+      "exclusions_found": [],
+      "eligible_amount": 12500,
+      "ineligible_amount": 0,
+      "eligibility_summary": "Member is actively covered under the group policy since January 1, 2024. The claim for a hospital admission due to appendectomy is a covered benefit. There is no applicable waiting period, and the annual policy limit and benefit cap have not been exceeded. No exclusions apply. The full claimed amount is eligible.",
+      "recommendations": [
+        "Proceed with claim adjudication and payment.",
+        "Monitor annual limit for future claims."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Eligibility Assessment Agent",
+      "timestamp": "2024-06-21T09:04:16Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"eligibility_status\": \"eligible\",\n    \"member_status\": {\n      \"active_coverage\": true,\n      \"member_id_valid\": true,\n      \"enrollment_date\": \"2024-01-01\",\n      \"coverage_effective_date\": \"2024-01-01\"\n    },\n    \"coverage_assessment\": {\n      \"claim_type_covered\": true,\n      \"within_coverage_limits\": true,\n      \"annual_limit\": 20000,\n      \"remaining_limit\": 20000,\n      \"benefit_cap\": 20000\n    },\n    \"waiting_period\": {\n      \"applicable\": false,\n      \"satisfied\": true,\n      \"waiting_period_end_date\": \"\"\n    },\n    \"exclusions_found\": [],\n    \"eligible_amount\": 12500,\n    \"ineligible_amount\": 0,\n    \"eligibility_summary\": \"Member is actively covered under the group policy since January 1, 2024. The claim for a hospital admission due to appendectomy is a covered benefit. There is no applicable waiting period, and the annual policy limit and benefit cap have not been exceeded. No exclusions apply. The full claimed amount is eligible.\",\n    \"recommendations\": [\n      \"Proceed with claim adjudication and payment.\",\n      \"Monitor annual limit for future claims.\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"Eligibility Assessment Agent\",\n    \"timestamp\": \"2024-06-21T09:04:16Z\"\n  }\n}\n"
+}

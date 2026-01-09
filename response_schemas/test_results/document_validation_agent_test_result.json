@@ -1,0 +1,61 @@
+{
+  "agent_name": "Document Validation Agent",
+  "agent_id": "69610b22c57d451439d4be08",
+  "test_message": "Validate claim documents for Member ID: MBR-2024-5678, Claim Type: Hospital Admission, Claimed Amount: $12,500. Submitted documents: Medical bills (hospital invoice), ID proof (driver's license), Claim form (completed), Discharge summary. Service dates: Dec 15-18, 2024. Provider: St. Mary's Hospital.",
+  "expected_purpose": "analyzer",
+  "timestamp": "2026-01-09T14:08:19.109971",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "validation_status": "incomplete",
+      "required_fields_check": {
+        "member_id": true,
+        "claim_type": true,
+        "claim_amount": true,
+        "service_date": true,
+        "submission_date": false,
+        "supporting_documents": false
+      },
+      "document_quality": {
+        "legibility": "good",
+        "format_compliance": true,
+        "signatures_present": false
+      },
+      "inconsistencies_found": [
+        {
+          "field": "submission_date",
+          "issue": "Submission date not provided.",
+          "severity": "high"
+        },
+        {
+          "field": "supporting_documents",
+          "issue": "No attending physician\u2019s certificate or hospital medical certificate included in supporting documents.",
+          "severity": "high"
+        },
+        {
+          "field": "claim form",
+          "issue": "Unclear if claimant and physician signatures are present on claim form.",
+          "severity": "medium"
+        }
+      ],
+      "missing_items": [
+        "Submission date",
+        "Attending physician\u2019s certificate or equivalent medical certificate",
+        "Signatures (claimant, physician on claim form if not yet supplied)"
+      ],
+      "validation_summary": "Core claim details provided (member ID, claim type, claimed amount, service dates, key provider data). However, submission date and essential supporting documentation (attending physician\u2019s certificate or hospital medical certificate), as well as mandatory signatures, are missing. Review and resubmission required.",
+      "recommendations": [
+        "Provide the submission date for the claim.",
+        "Submit an attending physician\u2019s certificate or official hospital medical certificate as required for hospitalization claims.",
+        "Ensure all required signatures are present on the claim form (claimant and attending physician)."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Document Validation Agent",
+      "timestamp": "2024-06-21T13:00:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"validation_status\": \"incomplete\",\n    \"required_fields_check\": {\n      \"member_id\": true,\n      \"claim_type\": true,\n      \"claim_amount\": true,\n      \"service_date\": true,\n      \"submission_date\": false,\n      \"supporting_documents\": false\n    },\n    \"document_quality\": {\n      \"legibility\": \"good\",\n      \"format_compliance\": true,\n      \"signatures_present\": false\n    },\n    \"inconsistencies_found\": [\n      {\n        \"field\": \"submission_date\",\n        \"issue\": \"Submission date not provided.\",\n        \"severity\": \"high\"\n      },\n      {\n        \"field\": \"supporting_documents\",\n        \"issue\": \"No attending physician\u2019s certificate or hospital medical certificate included in supporting documents.\",\n        \"severity\": \"high\"\n      },\n      {\n        \"field\": \"claim form\",\n        \"issue\": \"Unclear if claimant and physician signatures are present on claim form.\",\n        \"severity\": \"medium\"\n      }\n    ],\n    \"missing_items\": [\n      \"Submission date\",\n      \"Attending physician\u2019s certificate or equivalent medical certificate\",\n      \"Signatures (claimant, physician on claim form if not yet supplied)\"\n    ],\n    \"validation_summary\": \"Core claim details provided (member ID, claim type, claimed amount, service dates, key provider data). However, submission date and essential supporting documentation (attending physician\u2019s certificate or hospital medical certificate), as well as mandatory signatures, are missing. Review and resubmission required.\",\n    \"recommendations\": [\n      \"Provide the submission date for the claim.\",\n      \"Submit an attending physician\u2019s certificate or official hospital medical certificate as required for hospitalization claims.\",\n      \"Ensure all required signatures are present on the claim form (claimant and attending physician).\"\n    ]\n  },\n  \"metadata\": {\n    \"agent_name\": \"Document Validation Agent\",\n    \"timestamp\": \"2024-06-21T13:00:00Z\"\n  }\n}"
+}

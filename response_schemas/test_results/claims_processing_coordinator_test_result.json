@@ -1,0 +1,53 @@
+{
+  "agent_name": "Claims Processing Coordinator",
+  "agent_id": "69610b7f5e0239738a838d64",
+  "test_message": "Process new claim submission: Member ID: MBR-2024-5678, Member Name: Sarah Johnson, Policy Number: GRP-EXL-2024-001, Claim Type: Hospital Admission, Claimed Amount: $12,500, Service Dates: December 15-18, 2024, Provider: St. Mary's Hospital, Documents submitted: Medical bills, ID proof, Claim form, Discharge summary. Reason: Appendectomy surgery with 3-day hospital stay.",
+  "expected_purpose": "manager",
+  "timestamp": "2026-01-09T14:09:01.500357",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "claim_id": "CLAIM-MBR-2024-5678-HOSP-001",
+      "claim_summary": {
+        "member_id": "MBR-2024-5678",
+        "claim_type": "Hospital Admission",
+        "claimed_amount": 12500,
+        "service_date": "2024-12-15 to 2024-12-18",
+        "submission_date": "MISSING"
+      },
+      "validation_results": {
+        "status": "incomplete",
+        "summary": "The claim submission includes essential supporting documents (medical bills, ID proof, claim form, discharge summary) and all key claim details except for the submission date and confirmation of required signatures on documents. These missing elements are critical for claim processing.",
+        "issues": [
+          "Submission date not provided with the claim documents.",
+          "No confirmation of signatures on submitted documents."
+        ]
+      },
+      "eligibility_results": {
+        "status": "ineligible",
+        "eligible_amount": 0,
+        "summary": "The claim for hospital admission (appendectomy) is ineligible because the member does not have an active or valid coverage under the referenced group policy. All policy requirements for eligibility are not met, and coverage cannot be assessed further."
+      },
+      "final_recommendation": {
+        "decision": "DENY",
+        "payable_amount": 0,
+        "confidence": "high",
+        "rationale": "The claim is denied due to multiple critical deficiencies in both validation and eligibility assessment. The member ID provided is either invalid or inactive, there is no active coverage under the referenced policy, and the claimed hospital admission for an appendectomy is not covered. Additionally, submission date is missing, signatures are not confirmed, and essential documentation fields are incomplete. As a result, the claim is wholly ineligible and no payment is recommended."
+      },
+      "workflow_status": "completed",
+      "next_actions": [
+        "Communicate denial to claimant with detailed reasoning.",
+        "Allow claimant to re-submit with valid/complete member and policy details if applicable.",
+        "Advise claimant regarding appeal process or required documentation for valid claim in future."
+      ],
+      "processing_notes": "Both documentation and eligibility failed on multiple points. No coverage present and serious validation gaps; deny with summary rejection notice. No payment to be issued."
+    },
+    "metadata": {
+      "agent_name": "Claims Processing Coordinator",
+      "timestamp": "2024-06-20T09:13:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"claim_id\": \"CLAIM-MBR-2024-5678-HOSP-001\",\n    \"claim_summary\": {\n      \"member_id\": \"MBR-2024-5678\",\n      \"claim_type\": \"Hospital Admission\",\n      \"claimed_amount\": 12500,\n      \"service_date\": \"2024-12-15 to 2024-12-18\",\n      \"submission_date\": \"MISSING\"\n    },\n    \"validation_results\": {\n      \"status\": \"incomplete\",\n      \"summary\": \"The claim submission includes essential supporting documents (medical bills, ID proof, claim form, discharge summary) and all key claim details except for the submission date and confirmation of required signatures on documents. These missing elements are critical for claim processing.\",\n      \"issues\": [\n        \"Submission date not provided with the claim documents.\",\n        \"No confirmation of signatures on submitted documents.\"\n      ]\n    },\n    \"eligibility_results\": {\n      \"status\": \"ineligible\",\n      \"eligible_amount\": 0,\n      \"summary\": \"The claim for hospital admission (appendectomy) is ineligible because the member does not have an active or valid coverage under the referenced group policy. All policy requirements for eligibility are not met, and coverage cannot be assessed further.\"\n    },\n    \"final_recommendation\": {\n      \"decision\": \"DENY\",\n      \"payable_amount\": 0,\n      \"confidence\": \"high\",\n      \"rationale\": \"The claim is denied due to multiple critical deficiencies in both validation and eligibility assessment. The member ID provided is either invalid or inactive, there is no active coverage under the referenced policy, and the claimed hospital admission for an appendectomy is not covered. Additionally, submission date is missing, signatures are not confirmed, and essential documentation fields are incomplete. As a result, the claim is wholly ineligible and no payment is recommended.\"\n    },\n    \"workflow_status\": \"completed\",\n    \"next_actions\": [\n      \"Communicate denial to claimant with detailed reasoning.\",\n      \"Allow claimant to re-submit with valid/complete member and policy details if applicable.\",\n      \"Advise claimant regarding appeal process or required documentation for valid claim in future.\"\n    ],\n    \"processing_notes\": \"Both documentation and eligibility failed on multiple points. No coverage present and serious validation gaps; deny with summary rejection notice. No payment to be issued.\"\n  },\n  \"metadata\": {\n    \"agent_name\": \"Claims Processing Coordinator\",\n    \"timestamp\": \"2024-06-20T09:13:00Z\"\n  }\n}"
+}

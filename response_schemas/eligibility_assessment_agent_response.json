@@ -1,0 +1,119 @@
+{
+  "agent_name": "Eligibility Assessment Agent",
+  "agent_id": "69610b405e0239738a838d56",
+  "agent_purpose": "analyzer",
+  "description": "Evaluates claim eligibility against policy terms, coverage limits, waiting periods, and exclusions",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "eligibility_status": "string",
+      "member_status": {
+        "active_coverage": "boolean",
+        "member_id_valid": "boolean",
+        "enrollment_date": "string",
+        "coverage_effective_date": "string"
+      },
+      "coverage_assessment": {
+        "claim_type_covered": "boolean",
+        "within_coverage_limits": "boolean",
+        "annual_limit": "number",
+        "remaining_limit": "number",
+        "benefit_cap": "number"
+      },
+      "waiting_period": {
+        "applicable": "boolean",
+        "satisfied": "boolean",
+        "waiting_period_end_date": "string"
+      },
+      "exclusions_found": [
+        "any"
+      ],
+      "eligible_amount": "number",
+      "ineligible_amount": "number",
+      "eligibility_summary": "string",
+      "recommendations": [
+        "string"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "eligibility_status": "eligible",
+      "member_status": {
+        "active_coverage": true,
+        "member_id_valid": true,
+        "enrollment_date": "2024-01-01",
+        "coverage_effective_date": "2024-01-01"
+      },
+      "coverage_assessment": {
+        "claim_type_covered": true,
+        "within_coverage_limits": true,
+        "annual_limit": 20000,
+        "remaining_limit": 20000,
+        "benefit_cap": 20000
+      },
+      "waiting_period": {
+        "applicable": false,
+        "satisfied": true,
+        "waiting_period_end_date": ""
+      },
+      "exclusions_found": [],
+      "eligible_amount": 12500,
+      "ineligible_amount": 0,
+      "eligibility_summary": "Member is actively covered under the group policy since January 1, 2024. The claim for a hospital admission due to appendectomy is a covered benefit. There is no applicable waiting period, and the annual policy limit and benefit cap have not been exceeded. No exclusions apply. The full claimed amount is eligible.",
+      "recommendations": [
+        "Proceed with claim adjudication and payment.",
+        "Monitor annual limit for future claims."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Eligibility Assessment Agent",
+      "timestamp": "2024-06-21T09:04:16Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-01-09T14:08:25.116558",
+  "test_message_used": "Analyze this sample data for testing",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "eligibility_status": "eligible",
+      "member_status": {
+        "active_coverage": true,
+        "member_id_valid": true,
+        "enrollment_date": "2024-01-01",
+        "coverage_effective_date": "2024-01-01"
+      },
+      "coverage_assessment": {
+        "claim_type_covered": true,
+        "within_coverage_limits": true,
+        "annual_limit": 20000,
+        "remaining_limit": 20000,
+        "benefit_cap": 20000
+      },
+      "waiting_period": {
+        "applicable": false,
+        "satisfied": true,
+        "waiting_period_end_date": ""
+      },
+      "exclusions_found": [],
+      "eligible_amount": 12500,
+      "ineligible_amount": 0,
+      "eligibility_summary": "Member is actively covered under the group policy since January 1, 2024. The claim for a hospital admission due to appendectomy is a covered benefit. There is no applicable waiting period, and the annual policy limit and benefit cap have not been exceeded. No exclusions apply. The full claimed amount is eligible.",
+      "recommendations": [
+        "Proceed with claim adjudication and payment.",
+        "Monitor annual limit for future claims."
+      ]
+    },
+    "metadata": {
+      "agent_name": "Eligibility Assessment Agent",
+      "timestamp": "2024-06-21T09:04:16Z"
+    }
+  },
+  "test_passed": true
+}

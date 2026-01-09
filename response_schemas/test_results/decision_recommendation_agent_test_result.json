@@ -1,0 +1,56 @@
+{
+  "agent_name": "Decision Recommendation Agent",
+  "agent_id": "69610b5cc57d451439d4be18",
+  "test_message": "Generate recommendation for claim: Member ID: MBR-2024-5678, Claim Type: Hospital Admission, Amount: $12,500. Document validation: PASS (all documents complete). Eligibility: PASS (member active, coverage valid, no exclusions apply). Service: Appendectomy surgery with 3-day hospital stay. Provider: In-network hospital.",
+  "expected_purpose": "recommendation",
+  "timestamp": "2026-01-09T14:08:27.818532",
+  "is_valid_json": true,
+  "validation_errors": [],
+  "actual_response": {
+    "status": "success",
+    "result": {
+      "decision_recommendation": "APPROVE",
+      "confidence_level": "high",
+      "payable_amount": 12500,
+      "claimed_amount": 12500,
+      "adjustment_amount": 0,
+      "decision_rationale": "Claim is fully substantiated: all required documents are validated, member eligibility is confirmed, coverage is in force without exclusions, and the procedure (appendectomy with 3-day inpatient stay) is consistent with insured benefits at an in-network hospital.",
+      "supporting_factors": [
+        {
+          "factor": "All documents complete and verified",
+          "impact": "positive"
+        },
+        {
+          "factor": "Member is active and coverage valid",
+          "impact": "positive"
+        },
+        {
+          "factor": "No policy exclusions apply to this procedure",
+          "impact": "positive"
+        },
+        {
+          "factor": "Service performed at in-network hospital",
+          "impact": "positive"
+        },
+        {
+          "factor": "Claim amount within reasonable range for appendectomy with short hospital stay",
+          "impact": "positive"
+        }
+      ],
+      "red_flags": [],
+      "manual_review_required": false,
+      "review_reason": "",
+      "next_steps": [
+        "Proceed to claim settlement and payment processing",
+        "Notify member and provider of claim approval",
+        "Archive claim record for audit trail"
+      ],
+      "processing_notes": "All criteria for claim approval have been met. No adjustments or manual interventions are required."
+    },
+    "metadata": {
+      "agent_name": "Decision Recommendation Agent",
+      "timestamp": "2024-06-25T11:02:00Z"
+    }
+  },
+  "raw_response": "{\n  \"status\": \"success\",\n  \"result\": {\n    \"decision_recommendation\": \"APPROVE\",\n    \"confidence_level\": \"high\",\n    \"payable_amount\": 12500,\n    \"claimed_amount\": 12500,\n    \"adjustment_amount\": 0,\n    \"decision_rationale\": \"Claim is fully substantiated: all required documents are validated, member eligibility is confirmed, coverage is in force without exclusions, and the procedure (appendectomy with 3-day inpatient stay) is consistent with insured benefits at an in-network hospital.\",\n    \"supporting_factors\": [\n      {\"factor\": \"All documents complete and verified\", \"impact\": \"positive\"},\n      {\"factor\": \"Member is active and coverage valid\", \"impact\": \"positive\"},\n      {\"factor\": \"No policy exclusions apply to this procedure\", \"impact\": \"positive\"},\n      {\"factor\": \"Service performed at in-network hospital\", \"impact\": \"positive\"},\n      {\"factor\": \"Claim amount within reasonable range for appendectomy with short hospital stay\", \"impact\": \"positive\"}\n    ],\n    \"red_flags\": [],\n    \"manual_review_required\": false,\n    \"review_reason\": \"\",\n    \"next_steps\": [\n      \"Proceed to claim settlement and payment processing\",\n      \"Notify member and provider of claim approval\",\n      \"Archive claim record for audit trail\"\n    ],\n    \"processing_notes\": \"All criteria for claim approval have been met. No adjustments or manual interventions are required.\"\n  },\n  \"metadata\": {\n    \"agent_name\": \"Decision Recommendation Agent\",\n    \"timestamp\": \"2024-06-25T11:02:00Z\"\n  }\n}"
+}

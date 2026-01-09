@@ -1,0 +1,132 @@
+{
+  "agent_name": "Decision Recommendation Agent",
+  "agent_id": "69610b5cc57d451439d4be18",
+  "agent_purpose": "recommendation",
+  "description": "Generates claim decision recommendations with rationale, calculates payable amounts, and identifies red flags",
+  "response_schema": {
+    "status": "string",
+    "result": {
+      "decision_recommendation": "string",
+      "confidence_level": "string",
+      "payable_amount": "number",
+      "claimed_amount": "number",
+      "adjustment_amount": "number",
+      "decision_rationale": "string",
+      "supporting_factors": [
+        {
+          "factor": "string",
+          "impact": "string"
+        }
+      ],
+      "red_flags": [
+        "any"
+      ],
+      "manual_review_required": "boolean",
+      "review_reason": "string",
+      "next_steps": [
+        "string"
+      ],
+      "processing_notes": "string"
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "decision_recommendation": "APPROVE",
+      "confidence_level": "high",
+      "payable_amount": 12500,
+      "claimed_amount": 12500,
+      "adjustment_amount": 0,
+      "decision_rationale": "Claim is fully substantiated: all required documents are validated, member eligibility is confirmed, coverage is in force without exclusions, and the procedure (appendectomy with 3-day inpatient stay) is consistent with insured benefits at an in-network hospital.",
+      "supporting_factors": [
+        {
+          "factor": "All documents complete and verified",
+          "impact": "positive"
+        },
+        {
+          "factor": "Member is active and coverage valid",
+          "impact": "positive"
+        },
+        {
+          "factor": "No policy exclusions apply to this procedure",
+          "impact": "positive"
+        },
+        {
+          "factor": "Service performed at in-network hospital",
+          "impact": "positive"
+        },
+        {
+          "factor": "Claim amount within reasonable range for appendectomy with short hospital stay",
+          "impact": "positive"
+        }
+      ],
+      "red_flags": [],
+      "manual_review_required": false,
+      "review_reason": "",
+      "next_steps": [
+        "Proceed to claim settlement and payment processing",
+        "Notify member and provider of claim approval",
+        "Archive claim record for audit trail"
+      ],
+      "processing_notes": "All criteria for claim approval have been met. No adjustments or manual interventions are required."
+    },
+    "metadata": {
+      "agent_name": "Decision Recommendation Agent",
+      "timestamp": "2024-06-25T11:02:00Z"
+    }
+  },
+  "is_actual_tested": true,
+  "test_timestamp": "2026-01-09T14:08:27.819923",
+  "test_message_used": "Provide sample recommendations for testing",
+  "actual_test_response": {
+    "status": "success",
+    "result": {
+      "decision_recommendation": "APPROVE",
+      "confidence_level": "high",
+      "payable_amount": 12500,
+      "claimed_amount": 12500,
+      "adjustment_amount": 0,
+      "decision_rationale": "Claim is fully substantiated: all required documents are validated, member eligibility is confirmed, coverage is in force without exclusions, and the procedure (appendectomy with 3-day inpatient stay) is consistent with insured benefits at an in-network hospital.",
+      "supporting_factors": [
+        {
+          "factor": "All documents complete and verified",
+          "impact": "positive"
+        },
+        {
+          "factor": "Member is active and coverage valid",
+          "impact": "positive"
+        },
+        {
+          "factor": "No policy exclusions apply to this procedure",
+          "impact": "positive"
+        },
+        {
+          "factor": "Service performed at in-network hospital",
+          "impact": "positive"
+        },
+        {
+          "factor": "Claim amount within reasonable range for appendectomy with short hospital stay",
+          "impact": "positive"
+        }
+      ],
+      "red_flags": [],
+      "manual_review_required": false,
+      "review_reason": "",
+      "next_steps": [
+        "Proceed to claim settlement and payment processing",
+        "Notify member and provider of claim approval",
+        "Archive claim record for audit trail"
+      ],
+      "processing_notes": "All criteria for claim approval have been met. No adjustments or manual interventions are required."
+    },
+    "metadata": {
+      "agent_name": "Decision Recommendation Agent",
+      "timestamp": "2024-06-25T11:02:00Z"
+    }
+  },
+  "test_passed": true
+}
